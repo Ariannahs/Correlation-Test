@@ -1,9 +1,11 @@
 #Feature Selection
+ 
 testColumns = ['label', 'ver', 'apptype', 'ip', 'city', 'province', 'reqrealip',
        'dvctype', 'make', 'ntt', 'carrier', 'orientation', 'lan', 'h_w', 'ppi',
        'hour']
        
 #Introduce ChiSquare Class
+ 
 class ChiSquare:
     def __init__(self, dataframe):
         self.df = dataframe
@@ -37,7 +39,9 @@ class ChiSquare:
         
         self._print_chisquare_result(colX,alpha)
         
+        
 #Initialize ChiSquare Class
+ 
 cT = ChiSquare(train_clean)
 
 for var in testColumns:
