@@ -2,13 +2,11 @@ import scipy.stats as stats
 from scipy.stats import chi2_contingency 
 
 ## Feature Selection    
-
 testColumns = ['label', 'ver', 'apptype', 'ip', 'city', 'province', 'reqrealip',
        'dvctype', 'make', 'ntt', 'carrier', 'orientation', 'lan', 'h_w', 'ppi',
        'hour']
        
 ## Introduce ChiSquare Class     
-
 class ChiSquare:
     def __init__(self, dataframe):
         
@@ -25,7 +23,6 @@ class ChiSquare:
             result="{0} - IMPORTANT predictor. Chi-Statistic:{1}, P-value:{2}".format(colX,self.chi2,self.p) 
         else:
             result="{0} - NOT important predictor. Chi-Statistic:{1}, P-value:{2}".format(colX,self.chi2,self.p)
-
         print(result)
         
     def TestIndependence(self, colX, colY, alpha=0.05):
@@ -36,16 +33,16 @@ class ChiSquare:
         chi2, p, dof, expected = stats.chi2_contingency(self.dfObserved.values)
         self.p = p
         self.chi2 = chi2
-        self.dof = dof 
-        
-        self.dfExpected = pd.DataFrame(expected, columns=self.dfObserved.columns, index = self.dfObserved.index)
-        
+        self.dof = dof         
+        self.dfExpected = pd.DataFrame(expected, columns=self.dfObserved.columns, index = self.dfObserved.index)        
         self._print_chisquare_result(colX,alpha)
         
         
 ## Initialize ChiSquare Class   
-   
 cT = ChiSquare(train_clean)
 
 for var in testColumns:
-    cT.TestIndependence(colX=var, colY='label')
+    cT.TestIndependence(colX=var, colY='label')  
+
+
+
