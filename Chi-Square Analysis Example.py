@@ -1,3 +1,6 @@
+import scipy.stats as stats
+from scipy.stats import chi2_contingency 
+
 ## Feature Selection    
 
 testColumns = ['label', 'ver', 'apptype', 'ip', 'city', 'province', 'reqrealip',
