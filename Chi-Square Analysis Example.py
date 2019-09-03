@@ -2,15 +2,13 @@ import scipy.stats as stats
 from scipy.stats import chi2_contingency 
 
 ## Feature Selection    
-testColumns = ['label', 'ver', 'apptype', 'ip', 'city', 'province', 'reqrealip',
-       'dvctype', 'make', 'ntt', 'carrier', 'orientation', 'lan', 'h_w', 'ppi',
-       'hour']
+testColumns = traindata.columns[np.where(traindata.dtypes==object)]
        
 ## Introduce ChiSquare Class     
 class ChiSquare:
     def __init__(self, dataframe):
         
-		self.df = dataframe
+	self.df = dataframe
         self.p = None #P-Value
         self.chi2 = None  #Chi Test Statistic
         self.dof = None
@@ -39,7 +37,7 @@ class ChiSquare:
         
         
 ## Initialize ChiSquare Class   
-cT = ChiSquare(train_clean)
+cT = ChiSquare(traindata)
 
 for var in testColumns:
     cT.TestIndependence(colX=var, colY='label')  
