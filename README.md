@@ -21,3 +21,7 @@ Between categorical and numerical variables, use **ANOVA Analysis**:
 
 We calculated in-group variance and intra-class intra-group variance, and then compared them.  
 If p value < 0.05, it means the two variables are not independent (correlated).
+
+连续vs连续：相关分析
+连续vs分类：T检验，方差检验
+分类vs分类：卡方检验
